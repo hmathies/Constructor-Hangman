@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/hmathies/Constructor-Hangman/issues"
   },
-  "homepage": "https://github.com/hmathies/Constructor-Hangman#readme"
+  "homepage": "https://github.com/hmathies/Constructor-Hangman#readme",
+  "dependencies": {
+    "fs-extra": "^4.0.2"
+  }
 }
