@@ -1,0 +1,24 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "a command line interface game",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmathies/Constructor-Hangman.git"
+  },
+  "keywords": [
+    "hangman",
+    "node.js",
+    "cli"
+  ],
+  "author": "Heather Mathies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hmathies/Constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/hmathies/Constructor-Hangman#readme"
+}
