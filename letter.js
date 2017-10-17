@@ -1,7 +1,7 @@
 // requiring the prompt npm package to ask users questions
 const inquirer = require("inquirer");
 // requiring the hangmanAdmin module
-const hangmanAdmin = require("./hangmanAdmin");
+const hangmanAdmin = require("./word");
 
 function Letter(letter){
 

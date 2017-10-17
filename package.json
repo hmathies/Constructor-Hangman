@@ -2,7 +2,7 @@
   "name": "hangman",
   "version": "1.0.0",
   "description": "a command line interface game",
-  "main": "cli.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/hmathies/Constructor-Hangman#readme",
   "dependencies": {
-    "fs-extra": "^4.0.2"
+    "fs-extra": "^4.0.2",
+    "inquirer": "^3.3.0",
+    "prompt": "^1.0.0"
   }
 }
