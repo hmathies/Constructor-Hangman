@@ -1,42 +1,25 @@
-// requiring the prompt npm package to ask users questions
-const inquirer = require("inquirer");
-// requiring the hangmanAdmin module
-const hangmanAdmin = require("./word");
+/*constructor function which will either display the letter to the screen if it is in the word
+or it will display a blank if it is not in the word*/
 
-function Letter(letter){
+var letter = function(_letter){
+  this.letter = _letter;
+  this.isBlank = true;
 
-  this.letter = letter;
-}
+  this.renderLetter = function(){
+    if(this.isBlank){
+      return "_";
+    }else{
+      return this.letter;
+    }
+  };
 
-Letter.prototype.printInfo = function(){
-  console.log("Letters:  " + this.letter);
-}
-var count = 0;
-var letterArray = [];
-
-var askForLetter = function(){
-
-  if (count < 2){
-
-
-    inquirer.prompt([
-    {
-        name: 'letter',
-        message: 'Guess a letter?',
-
-      }
-    ]).then(function(answers){
-      var newLetter = new Letter(
-        answers.letter);
-    letterArray.push(newLetter);
-    count++;
-    askForLetter();
-  });
-
-}else{
-  for(var i = 0; i < letterArray.length; i++){
-    letterArray[i].printInfo();
+  this.checkGuess = function(guess){
+    if(this.letter == guess){
+      this.isBlank = false;
+      return true;
+    }
+    return false;
   }
-}
 };
-askForLetter();
+
+module.exports = letter;
