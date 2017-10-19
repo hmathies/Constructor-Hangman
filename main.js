@@ -11,8 +11,22 @@ console.log('Welcome to Hangman!');
 console.log('----------------------');
 console.log("Guess a Letter?");
 console.log();
-prompt.start();
 
+
+var promptUser = {
+  properties: {
+    name: {
+      pattern: /^[a-zA-Z]+$/,
+      message: 'Guess a letter?',
+      required: true
+    },
+  }
+};
+prompt.get(promptUser, function (err, result) {
+  console.log('Command-line input received:');
+  console.log('guess: ' + result.name);
+});
+prompt.start();
 // var _word = new Word('node');
 // console.log(_word.renderWord());
 // _word.checkGuess('0');
@@ -31,6 +45,9 @@ game = {
     console.log();
     /*this.promptUser();*/
   },
+
+
+
   // resetGuesses: function(){
   //   this.guessesRemaining =10;
   // },
