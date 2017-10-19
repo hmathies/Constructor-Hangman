@@ -1,21 +1,19 @@
 // requiring the letter and word modules
 const Word = require("./word");
 const Letter = require("./letter");
+const colors = require("colors/safe");
 
 // requiring the inquirer or prompt npm package to ask users questions
 // const inquirer = require("inquirer");
 const prompt = require("prompt");
+prompt.message = ("");
 
 console.log();
-console.log('Welcome to Hangman!');
-console.log('----------------------');
-console.log("Guess a Letter?");
-console.log();
-
 
 var promptUser = {
   properties: {
     name: {
+      description: colors.magenta("Guess a letter?"),
       pattern: /^[a-zA-Z]+$/,
       message: 'Guess a letter?',
       required: true
