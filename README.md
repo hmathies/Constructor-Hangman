@@ -1,2 +1,2 @@
 # Constructor-Hangman
-A command Line interface game
+A command Line interface game using Node.js
