@@ -1,30 +1,30 @@
 const Letter = require("./letter");
 
-var word = function(_word){
-  this.letters = [];
+var word = function(_word) {
+    this.letters = [];
 
-  for(i = 0; i < _word.length; i++){
-    var letter = new Letter(_word.charAt(i));
-    this.letters.push(letter);
-  }
-
-  this.checkGuess = function(guess){
-    var guessCorrect = false;
-    for(i in this.letters){
-      if(this.letters[i].checkGuess(guess)){
-        guessCorrect = true;
-      }
+    for (i = 0; i < _word.length; i++) {
+        var letter = new Letter(_word.charAt(i));
+        this.letters.push(letter);
     }
-    return guessCorrect;
-  }
 
-  this.renderWord = function(){
-    var _word = '';
-    for(i in this.letters){
-      _word += this.letters[i].renderLetter() + ' ';
+    this.checkGuess = function(guess) {
+        var guessCorrect = false;
+        for (i in this.letters) {
+            if (this.letters[i].checkGuess(guess)) {
+                guessCorrect = true;
+            }
+        }
+        return guessCorrect;
     }
-    return _word;
-  }
+
+    this.renderWord = function() {
+        var _word = '';
+        for (i in this.letters) {
+            _word += this.letters[i].renderLetter() + ' ';
+        }
+        return _word;
+    }
 
 }
 
