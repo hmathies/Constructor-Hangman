@@ -1,7 +1,7 @@
 // dependency for inquirer npm package
 const inquirer = require("inquirer");
 const Word = require("./word");
-const count = 0;
+
 Word.prototype.printInfo = function() {
   console.log("Letter: " + this.letter);
 };
@@ -21,9 +21,10 @@ const game = {
 };
 
 game.startGame();
+
 const askQuestion = function() {
   // if statement to ensure that our questions are only asked five times
-  if (count < 5) {
+  if (game.guessesRemaining < 0) {
     // runs inquirer and asks the user a series of questions whose replies are
     // stored within the variable answers inside of the .then statement
 
@@ -45,7 +46,6 @@ const askQuestion = function() {
       // printInfo method is run to show that the newguy object was successfully created and filled
 
       // add one to count to increment our recursive loop by one
-      count++;
       // run the askquestion function again so as to either end the loop or ask the questions again
       askQuestion();
     });

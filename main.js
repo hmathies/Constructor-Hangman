@@ -3,6 +3,7 @@ const Word = require("./word");
 const colors = require("colors/safe");
 const prompt = require("prompt");
 
+
 var count = 0;
 const game = {
     wordBank: ['node', 'html', 'css'],
@@ -20,8 +21,6 @@ const game = {
 
 game.startGame();
 
-// requiring the inquirer or prompt npm package to ask users questions
-// const inquirer = require("inquirer");
 prompt.message = ("");
 
 console.log();
@@ -40,21 +39,50 @@ const promptUser = {
 }
 
 
-prompt.start();
-prompt.get(promptUser, function(err, result) {
-    console.log('Command-line input received:');
+prompt.start();    
+askQuestion();
+
+
+
+
+function askQuestion(){
+   prompt.get(promptUser, function(err, result) {
     console.log('guess: ' + result.name);
-    count++;
-    console.log("this is count: " + count);
-    if(count < 10){
-      prompt.start();
-      count++;
-      console.log("keep guessing");
-      return;
+    console.log("this is count: " + game.guessesRemaining);
+
+    if(game.guessesRemaining > 0){
+      
+      if(game.currentWord.checkGuess(result.name)) {
+        console.log("Correct!");
+        console.log(game.currentWord.renderWord());
+        if (checkWin()){
+            return;
+        }
+
+      }else{
+        game.guessesRemaining--;
+        console.log("Incorrect!");
+        console.log(game.currentWord.renderWord());
+      }
+    askQuestion();
+    }else{
+        if(checkWin()){
+            return;
+        }else{
+            console.log('You lost!');
+        }
     }
 
+  }); 
+}
 
-});
+function checkWin(){
+    if(game.currentWord.checkWholeWord()){
+       console.log('You Win!');
+       return true; 
+    }
+    return false;
+
+}
 
 
-  //refactor to use inquirer and look at the inquirer recursion activity- programmersloop recursion activity 7 week 11

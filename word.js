@@ -26,6 +26,16 @@ var word = function(_word) {
         return _word;
     }
 
+    this.checkWholeWord = function() {
+        var guessCorrect = true;
+        for (i in this.letters) {
+            if (this.letters[i].isBlank) {
+                guessCorrect = false;
+            }
+        }
+        return guessCorrect;
+    }
+
 }
 
 module.exports = word;
