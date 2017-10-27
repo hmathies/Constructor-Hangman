@@ -28,7 +28,7 @@ console.log();
 const promptUser = {
     properties: {
         name: {
-            description: colors.magenta("Guess a letter?"),
+            description: colors.magenta("\nGuess a letter?"),
             pattern: /^[a-zA-Z]+$/,
             message: 'Guess a letter?',
             required: true
@@ -48,12 +48,12 @@ askQuestion();
 function askQuestion(){
    prompt.get(promptUser, function(err, result) {
     console.log('guess: ' + result.name);
-    console.log("this is count: " + game.guessesRemaining);
+    console.log("Guesses Remaining: " + game.guessesRemaining);
 
     if(game.guessesRemaining > 0){
       
       if(game.currentWord.checkGuess(result.name)) {
-        console.log("Correct!");
+        console.log("Correct!\n");
         console.log(game.currentWord.renderWord());
         if (checkWin()){
             return;
@@ -61,15 +61,15 @@ function askQuestion(){
 
       }else{
         game.guessesRemaining--;
-        console.log("Incorrect!");
-        console.log(game.currentWord.renderWord());
+        console.log("Incorrect!\n");
+        console.log(game.currentWord.renderWord() + '\n');
       }
     askQuestion();
     }else{
         if(checkWin()){
             return;
         }else{
-            console.log('You lost!');
+            console.log('You lost!\n');
         }
     }
 
@@ -78,7 +78,7 @@ function askQuestion(){
 
 function checkWin(){
     if(game.currentWord.checkWholeWord()){
-       console.log('You Win!');
+       console.log('You Win!\n');
        return true; 
     }
     return false;
